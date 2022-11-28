@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 边框跑马灯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--clr);
+            color: #ffffff;
+        }
+
+        :root {
+            --clr: #112434;
+            --b-clr1: rgb(183, 140, 247);
+            --b-clr2: rgb(255, 124, 148);
+            --b-color: black;
+            --b-size: 2px;
+            --b-radius: 15px;
+            --w: 150px;
+            --h: 200px;
+        }
+
+
+        .frame-horse-race-lamp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: var(--w);
+            height: var(--h);
+            background-color: var(--b-color);
+            border-radius: var(--b-radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .frame-horse-race-lamp::before {
+            content: ' ';
+            width: var(--w);
+            height: var(--h);
+            background: linear-gradient(transparent, transparent, var(--b-clr1));
+            border-radius: var(--b-radius);
+            position: absolute;
+            animation: myAnimate 4s linear infinite;
+            top: -50%;
+            left: 50%;
+            transform-origin: bottom left;
+        }
+
+        .frame-horse-race-lamp::after {
+            content: ' ';
+            width: var(--w);
+            height: var(--h);
+            background: linear-gradient(var(--b-clr2), transparent, transparent);
+            border-radius: var(--b-radius);
+            position: absolute;
+            animation: myAnimate 4s linear infinite;
+            top: 50%;
+            left: -50%;
+            transform-origin: top right;
+        }
+
+        @keyframes myAnimate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .frame-horse-race-lamp>div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: calc(var(--w) - var(--b-size));
+            height: calc(var(--h) - var(--b-size));
+            background-color: var(--clr);
+            border-radius: var(--b-radius);
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame-horse-race-lamp">
+        <div>
+            <b>麦兜</b>
+            <small>maidou</small>
+        </div>
+    </div>
+</body>
+
+</html>
