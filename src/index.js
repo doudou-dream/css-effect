@@ -61,7 +61,7 @@ export class collect {
      */
     first() {
         if (this.dataArr?.length > 0) {
-            return this?.dataArr[0]
+            return this.dataArr[0]
         }
         return {}
     }
