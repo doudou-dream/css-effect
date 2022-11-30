@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>css 边框跑马灯</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>麦兜</title>
+    <!-- Bootstrap 的 CSS 文件 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <!-- 选项 1：包含 Popper 的 Bootstrap 集成包 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <link type="text/css" rel="styleSheet" href="../style/horse-race-lamp.css" />
+    <link type="text/css" rel="styleSheet" href="../style/apply-shake.css" />
     <style>
         * {
             margin: 0;
@@ -13,6 +22,7 @@
         }
 
         body {
+            --clr: #112434;
             width: 100vw;
             height: 100vh;
             display: flex;
@@ -22,88 +32,92 @@
             color: #ffffff;
         }
 
-        :root {
-            --clr: #112434;
-            --b-clr1: rgb(183, 140, 247);
-            --b-clr2: rgb(255, 124, 148);
-            --b-color: black;
-            --b-size: 2px;
-            --b-radius: 15px;
-            --w: 150px;
-            --h: 200px;
+        .m-r-1 {
+            margin-right: 1rem;
         }
 
+        .m-t-1 {
+            margin-top: 1rem;
+        }
 
-        .frame-horse-race-lamp {
+        .head {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 0.5rem;
+            border-bottom: 1px solid #8D789B;
+            margin-bottom: 0.5rem;
+        }
+
+        .box {
+            height: 300px;
+            width: 200px;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            width: var(--w);
-            height: var(--h);
-            background-color: var(--b-color);
-            border-radius: var(--b-radius);
-            position: relative;
-            overflow: hidden;
+            background-color: #343F57;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
         }
 
-        .frame-horse-race-lamp::before {
-            content: ' ';
-            width: var(--w);
-            height: var(--h);
-            background: linear-gradient(transparent, transparent, var(--b-clr1));
-            border-radius: var(--b-radius);
-            position: absolute;
-            animation: myAnimate 4s linear infinite;
-            top: -50%;
-            left: 50%;
-            transform-origin: bottom left;
-        }
-
-        .frame-horse-race-lamp::after {
-            content: ' ';
-            width: var(--w);
-            height: var(--h);
-            background: linear-gradient(var(--b-clr2), transparent, transparent);
-            border-radius: var(--b-radius);
-            position: absolute;
-            animation: myAnimate 4s linear infinite;
-            top: 50%;
-            left: -50%;
-            transform-origin: top right;
-        }
-
-        @keyframes myAnimate {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .frame-horse-race-lamp>div {
+        .flex {
             display: flex;
+        }
+
+        .flex-row {
+            flex-direction: row;
+        }
+
+        .flex-col {
             flex-direction: column;
+        }
+
+        .align-items-center {
             align-items: center;
+        }
+
+        .justify-content-center {
             justify-content: center;
-            width: calc(var(--w) - var(--b-size));
-            height: calc(var(--h) - var(--b-size));
-            background-color: var(--clr);
-            border-radius: var(--b-radius);
-            z-index: 1;
+        }
+
+        .flex-1 {
+            flex: 1;
         }
     </style>
 </head>
 
 <body>
-    <div class="frame-horse-race-lamp">
-        <div>
-            <b>麦兜</b>
-            <small>maidou</small>
+    <div class="m-r-1 box">
+        <div class="head">跑马灯</div>
+        <div class="flex-1 flex justify-content-center align-items-center">
+            <div class="frame-horse-race-lamp">
+                <div class="frame-horse-race-lamp-item">
+                    <b>麦兜</b>
+                    <small>maidou</small>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="box">
+        <div class="head">抖动</div>
+        <div class="flex-1 flex flex-col justify-content-center">
+            <label for="dd-div" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="dd-div" placeholder="name@example.com">
+            <button type="button" class="btn btn-secondary m-t-1" onclick="wayApplyShake()">抖动</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
+
+<script>
+    /**
+     * 抖动
+     **/
+    function wayApplyShake() {
+        document.querySelector('#dd-div').classList.add('apply-shake')
+        setTimeout(() => {
+            document.querySelector('#dd-div').classList.remove('apply-shake')
+        }, 820)
+    }
+</script>

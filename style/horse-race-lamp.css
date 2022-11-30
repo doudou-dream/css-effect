@@ -1,0 +1,74 @@
+/* 跑马灯 */
+/* start   ---   horse race lamp */
+:root {
+  --clr: #112434;
+  --b-clr1: rgb(183, 140, 247);
+  --b-clr2: rgb(255, 124, 148);
+  --b-color: black;
+  --b-size: 2px;
+  --b-radius: 15px;
+  --w: 150px;
+  --h: 200px;
+}
+
+.frame-horse-race-lamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: var(--w);
+  height: var(--h);
+  background-color: var(--b-color);
+  border-radius: var(--b-radius);
+  position: relative;
+  overflow: hidden;
+}
+
+.frame-horse-race-lamp::before {
+  content: " ";
+  width: var(--w);
+  height: var(--h);
+  background: linear-gradient(transparent, transparent, var(--b-clr1));
+  border-radius: var(--b-radius);
+  position: absolute;
+  animation: myAnimate 4s linear infinite;
+  top: -50%;
+  left: 50%;
+  transform-origin: bottom left;
+}
+
+.frame-horse-race-lamp::after {
+  content: " ";
+  width: var(--w);
+  height: var(--h);
+  background: linear-gradient(var(--b-clr2), transparent, transparent);
+  border-radius: var(--b-radius);
+  position: absolute;
+  animation: myAnimate 4s linear infinite;
+  top: 50%;
+  left: -50%;
+  transform-origin: top right;
+}
+
+@keyframes myAnimate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.frame-horse-race-lamp .frame-horse-race-lamp-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--w) - var(--b-size));
+  height: calc(var(--h) - var(--b-size));
+  background-color: var(--clr);
+  border-radius: var(--b-radius);
+  z-index: 1;
+}
+/* end   ---   horse race lamp */

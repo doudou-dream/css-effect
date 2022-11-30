@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>抖动</title>
-    <link type="text/css" rel="styleSheet" href="../style/apply-shake.css" />
+    <title>css 边框跑马灯</title>
+    <link type="text/css" rel="styleSheet" href="../style/horse-race-lamp.css" />
     <style>
         * {
             margin: 0;
@@ -22,25 +22,16 @@
             background-color: var(--clr);
             color: #ffffff;
         }
-
-        .dd-div {
-            margin-right: 2rem;
-        }
     </style>
 </head>
-<script>
-    function wayApplyShake() {
-        console.log('123')
-        document.querySelector('.dd-div').classList.add('apply-shake')
-        setTimeout(() => {
-            document.querySelector('.dd-div').classList.remove('apply-shake')
-        }, 820)
-    }
-</script>
 
 <body>
-    <input class="dd-div" />
-    <button onclick="wayApplyShake()">抖动</button>
+    <div class="frame-horse-race-lamp">
+        <div>
+            <b>麦兜</b>
+            <small>maidou</small>
+        </div>
+    </div>
 </body>
 
 </html>
