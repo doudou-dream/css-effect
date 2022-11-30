@@ -1,11 +1,11 @@
 /* 跑马灯 */
 /* start   ---   horse race lamp */
 :root {
-  --clr: #112434;
+  --clr: #6B7888;
   --b-clr1: rgb(183, 140, 247);
   --b-clr2: rgb(255, 124, 148);
   --b-color: black;
-  --b-size: 2px;
+  --b-size: 5px;
   --b-radius: 15px;
   --w: 150px;
   --h: 200px;
