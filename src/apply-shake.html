@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抖动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--clr);
+            color: #ffffff;
+        }
+
+        .dd-div {
+            margin-right: 2rem;
+        }
+
+
+        @keyframes shake {
+
+            10%,
+            90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(2px, 0, 0);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: translate3d(-4px, 0, 0);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+
+        .apply-shake {
+            animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+        }
+    </style>
+</head>
+<script>
+    function wayApplyShake() {
+        console.log('123')
+        document.querySelector('.dd-div').classList.add('apply-shake')
+        setTimeout(() => {
+            document.querySelector('.dd-div').classList.remove('apply-shake')
+        }, 820)
+    }
+</script>
+
+<body>
+    <input class="dd-div" />
+    <button onclick="wayApplyShake()">抖动</button>
+</body>
+
+</html>
