@@ -81,11 +81,19 @@
         .flex-1 {
             flex: 1;
         }
+
+        .box {
+            margin-right: 1rem;
+        }
+
+        .box:last-child {
+            margin-right: 0;
+        }
     </style>
 </head>
 
 <body>
-    <div class="m-r-1 box">
+    <div class="box">
         <div class="head">跑马灯</div>
         <div class="flex-1 flex justify-content-center align-items-center">
             <div class="frame-horse-race-lamp">
@@ -101,7 +109,16 @@
         <div class="flex-1 flex flex-col justify-content-center">
             <label for="dd-div" class="form-label">Email address</label>
             <input type="email" class="form-control" id="dd-div" placeholder="dairen_y@maidou.com">
-            <button type="button" class="btn btn-secondary m-t-1" onclick="wayApplyShake()">抖动</button>
+            <button type="button" class="btn btn-secondary m-t-1 apply-shake-btn" onclick="wayApplyShake()">抖动</button>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="head">css 禁止点击实现</div>
+        <div class="flex-1">
+            <pre>pointer-events: none;</pre>
+            <button type="button" class="btn btn-secondary m-t-1 prointer-events-btn"
+                onclick="wayStopApplyShake()">禁止抖动</button>
         </div>
     </div>
 
@@ -119,4 +136,23 @@
             document.querySelector('#dd-div').classList.remove('apply-shake')
         }, 820)
     }
+
+    /**
+     * 禁止抖动
+     **/
+    function wayStopApplyShake() {
+        const shakeDom = document.querySelector('.apply-shake-btn')
+        const eventDom = document.querySelector('.prointer-events-btn')
+        console.log(shakeDom.style.pointerEvents, '--')
+        if (shakeDom.style.pointerEvents.toString() === 'auto' || shakeDom.style.pointerEvents.toString() === '' ) {
+            shakeDom.style.pointerEvents = 'none'
+            eventDom.innerHTML = '解除禁止'
+        } else {
+            shakeDom.style.pointerEvents = 'auto'
+            eventDom.innerHTML = '禁止抖动'
+        }
+    }
+
+    // 禁止点击事件
+    // pointer-events: none;
 </script>

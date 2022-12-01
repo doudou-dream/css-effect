@@ -4,3 +4,6 @@
 
 ## 抖动 apply-shake.html
 
+
+## css禁止点击事件 apply-shake.html
+

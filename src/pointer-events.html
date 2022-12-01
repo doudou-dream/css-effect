@@ -23,6 +23,7 @@
             width: 100vw;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: var(--clr);
@@ -35,20 +36,40 @@
     </style>
 </head>
 <script>
+    /**
+    * 抖动
+    **/
     function wayApplyShake() {
         document.querySelector('#dd-div').classList.add('apply-shake')
         setTimeout(() => {
             document.querySelector('#dd-div').classList.remove('apply-shake')
         }, 820)
     }
+
+    /**
+    * 禁止抖动
+    **/
+    function wayStopApplyShake() {
+        const shakeDom = document.querySelector('.apply-shake-btn')
+        const eventDom = document.querySelector('.prointer-events-btn')
+        console.log(shakeDom.style.pointerEvents, '--')
+        if (shakeDom.style.pointerEvents.toString() === 'auto' || shakeDom.style.pointerEvents.toString() === '') {
+            shakeDom.style.pointerEvents = 'none'
+            eventDom.innerHTML = '解除禁止'
+        } else {
+            shakeDom.style.pointerEvents = 'auto'
+            eventDom.innerHTML = '禁止抖动'
+        }
+    }
 </script>
 
 <body>
-    <div>
-        <input type="email" class="form-control" id="dd-div" placeholder="dairen_y@maidou.com">
-    </div>
+    <input type="email" style="width:10rem;" class="form-control" id="dd-div" placeholder="dairen_y@maidou.com">
+    <br>
     <div>
         <button type="button" class="btn btn-secondary m-t-1 apply-shake-btn" onclick="wayApplyShake()">抖动</button>
+        <button type="button" class="btn btn-secondary m-t-1 prointer-events-btn"
+            onclick="wayStopApplyShake()">禁止抖动</button>
     </div>
 </body>
 
