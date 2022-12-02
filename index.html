@@ -15,6 +15,7 @@
         crossorigin="anonymous"></script>
     <link type="text/css" rel="styleSheet" href="./style/horse-race-lamp.css" />
     <link type="text/css" rel="styleSheet" href="./style/apply-shake.css" />
+    <link type="text/css" rel="styleSheet" href="./style/neon-lamp.css" />
     <style>
         * {
             margin: 0;
@@ -122,6 +123,13 @@
         </div>
     </div>
 
+    <div class="box">
+        <div class="head">css 霓虹灯</div>
+        <div class="flex-1 flex flex-col align-items-center justify-content-center" style="background-color: #000000;">
+            <div class="p-orange orange">MaiDou</p>
+            </div>
+        </div>
+
 </body>
 
 </html>
@@ -144,7 +152,7 @@
         const shakeDom = document.querySelector('.apply-shake-btn')
         const eventDom = document.querySelector('.prointer-events-btn')
         console.log(shakeDom.style.pointerEvents, '--')
-        if (shakeDom.style.pointerEvents.toString() === 'auto' || shakeDom.style.pointerEvents.toString() === '' ) {
+        if (shakeDom.style.pointerEvents.toString() === 'auto' || shakeDom.style.pointerEvents.toString() === '') {
             shakeDom.style.pointerEvents = 'none'
             eventDom.innerHTML = '解除禁止'
         } else {
