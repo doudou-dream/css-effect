@@ -1,0 +1,54 @@
+:root {
+  --background-hide: #343f57;
+  --background-show: #000;
+  --loading-size: 50px;
+}
+.loading {
+  position: relative;
+  width: var(--loading-size);
+  height: var(--loading-size);
+  border-radius: 50%;
+  margin: 100px auto;
+  transform: rotate(360deg);
+  animation: rotate 45s infinite linear;
+}
+
+.loading::before {
+  position: absolute;
+  content: "";
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-top: 3px solid var(--background-show);
+  border-left: 3px solid var(--background-show);
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+  transform: rotate(720deg);
+  animation: rotate 3s infinite ease-out;
+}
+
+.loading::after {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid var(--background-hide);
+  border-left: 7px solid var(--background-hide);
+  transform: rotate(720deg);
+  animation: rotate 3s infinite ease-in-out;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(0deg);
+  }
+}
