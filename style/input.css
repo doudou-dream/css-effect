@@ -1,0 +1,28 @@
+.form-item {
+  position: relative;
+  color: #000;
+}
+
+input {
+  outline: none;
+  border: 2px solid aquamarine;
+  box-shadow: 0 0 3px #000;
+}
+
+/* has 父级选择器*/
+label:has(+ input:valid),
+label:has(+ input:focus) {
+  top: -35%;
+  left: 0;
+  color: #fff;
+}
+
+label {
+  font-size: 0.5rem;
+  position: absolute;
+  transition: all 0.3s;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
